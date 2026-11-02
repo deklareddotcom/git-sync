@@ -1,0 +1,61 @@
+# This file configures checks that all new code for Kubernetes is meant to
+# pass, in contrast to .golangci.yaml which defines checks that also the
+# existing code passes.
+
+version: "2"
+
+run:
+  timeout: 30m
+
+linters:
+  default: all
+
+  enable: # please keep this alphabetized
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - gocritic
+    - asasalint
+    - copyloopvar
+
+  disable:
+    - errcheck
+    - cyclop
+    - depguard
+    - dupl
+    - embeddedstructfieldcheck
+    - err113
+    - exhaustruct
+    - funcorder
+    - funlen
+    - gochecknoglobals
+    - gochecknoinits
+    - gocognit
+    - goconst # TODO: turn this one on
+    - gocyclo
+    - gosec # TODO: turn this one on
+    - lll
+    - maintidx
+    - mnd
+    - musttag
+    - nestif
+    - nlreturn
+    - noctx
+    - noinlineerr
+    - paralleltest
+    - perfsprint
+    - promlinter
+    - recvcheck
+    - revive
+    - tagliatelle
+    - testpackage
+    - varnamelen
+    - wrapcheck
+    - wsl
+    - wsl_v5
+
+  settings: # please keep this alphabetized
+    staticcheck:
+      checks:
+        - "all"
